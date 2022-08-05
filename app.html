@@ -18,11 +18,11 @@
 <a href="huaweischeme://healthapp/basicHealth" class="sub-title">点击各健康研究，体验华为创新研究APP，配合穿戴设备，随时随地管理健康。</a><br>
 <a href="huaweischeme://healthapp/basicHealth?healthType=1&startDay=20220801" class="sub-title">点击各健康研究，体验华为创新研究APP，配合穿戴设备，随时随地管理健康。20220801</a><br>
  <script>
- try{if(localStorage){alert('localStorage')}else{alert('error')}}catch(err){
-				 alert(err.toString())
-			}
- if(localStorage.checkList){alert('localStorage.checkList')}
- localStorage.checkList='[]'
+var str=''
+for(var i in window.research_obj){
+	str+=i+'\n'
+}
+alert(str)
  </script>
 </body>
 </html>
