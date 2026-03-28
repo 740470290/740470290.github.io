@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .input{
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 16px;
+      padding: 4px;
+    }
+    .content{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0px 10px;
+      margin-top: 4px;
+    }
+    .content>div{
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+<div>
+  <input type="text" class="input" oninput="search(this.value)">
+  <div class="content"></div>
+</div>
+<script>
+var data = `
+青椒炒干子 13元
+韭菜炒干子 13元
+黄瓜炒干子 13元
+大蒜炒干子 13元
+芹菜炒干子 13元
+雪菜炒干子 13元
+青椒炒千张 13元
+芹菜炒千张 13元
+大蒜炒千张 13元
+韭菜炒千张 13元
+炒素杂 13元
+韭菜炒豆芽 13元
+酸辣绿豆芽 13元
+地三鲜 13元
+油面筋青菜 13元
+青椒面筋 13元
+酸辣面筋 13元
+糖醋面筋 13元
+平菇炒青菜 13元
+
+蒜泥空心菜 13元
+蒜泥青菜 13元
+青椒土豆丝 13元
+酸辣土豆丝 13元
+青椒茄子 13元
+炒粉丝 13元
+酸辣大白菜 13元
+酸辣包菜 13元
+糖醋大白菜 13元
+糖醋包菜 13元
+
+麻辣豆腐 12元
+红烧豆腐 12元
+鸭血豆腐 13元
+
+韭菜鸡蛋 14元
+西红柿鸡蛋 14元
+青椒鸡蛋 14元
+黄瓜鸡蛋 14元
+洋葱鸡蛋 14元
+
+丝瓜鸡蛋 14元
+蒜黄鸡蛋 14元
+大蒜鸡蛋 14元
+平菇鸡蛋 14元
+莴瓜鸡蛋 14元
+木耳鸡蛋 14元
+青椒火腿肠鸡蛋 17元
+
+青椒肉丝 15元
+韭菜肉丝 15元
+芹菜肉丝 15元
+青椒洋葱肉丝 15元
+大蒜肉丝 15元
+土豆肉丝 15元
+水芹肉丝 15元
+青椒干子肉丝 15元
+青椒毛豆肉丝 15元
+青椒面筋肉丝 15元
+茄子肉丝 15元
+雪菜肉丝 15元
+
+青椒莴笋肉丝 15元
+平菇肉丝 15元
+蒜苔肉丝 15元
+木耳肉丝 16元
+莴瓜肉丝 15元
+大白菜肉丝 15元
+包菜肉丝 15元
+韭菜干张肉丝 15元
+黄瓜肉丝 15元
+
+大白菜炒皮肚 16元
+包菜炒皮肚 16元
+青菜炒皮肚 16元
+
+青椒猪肝 15元
+洋葱猪肝 15元
+大蒜猪肝 15元
+
+青椒炒香肠 16元
+土豆炒香肠 16元
+大白菜炒香肠 16元
+包菜炒香肠 16元
+大蒜炒香肠 16元
+
+平菇豆腐肉丝 15元
+平菇豆腐香肠 16元
+黄瓜鸡丁 15元
+青椒鸡丁 15元
+芹菜鸡丁 15元
+宫爆鸡丁 17元
+青菜炒油渣 15元
+鱼香肉丝 17元
+鱼香茄丝 17元
+平菇豆腐油渣 16元
+芦蒿干子炒肉丝 17元
+
+酸菜鱼 40元
+红烧鸡 25元
+爆炒肥肠 22元
+豆腐肥肠 22元
+
+青椒腰花 19元
+洋葱腰花 19元
+家常小炒肉 20元
+大白菜粉丝大肉 20元
+包菜烧大肉 20元
+大白菜烧小排 18元
+包菜烧小排 18元
+杂烩 18元
+大白菜粉丝肉圆 17元
+豆腐烧肉圆 17元
+炒鸡杂 18元
+
+西红柿鸡蛋汤 14元
+紫菜蛋汤 14元
+平菇青菜肉丝汤 16元
+三鲜汤 18元
+豆腐青菜榨菜汤 13元
+西红柿猪肝鸡蛋汤 18元
+青菜猪肝汤 16元
+`
+function $(el){return document.querySelector(el)}
+function search(str){
+  var list = data.split('\n').filter(v=>v)
+  var html = list.filter(v=>v.includes(str)).slice(0,30).map(v=>`<div><div>${v.split(' ')[0]}</div><div>${v.split(' ')[1]}</div></div>`).join('')
+  $('.content').innerHTML=html
+}
+search('')
+</script>
+</body>
+</html>
