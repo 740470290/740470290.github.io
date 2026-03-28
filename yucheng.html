@@ -157,7 +157,7 @@ var data = `
 function $(el){return document.querySelector(el)}
 function search(str){
   var list = data.split('\n').filter(v=>v)
-  var html = list.filter(v=>v.includes(str)).slice(0,30).map(v=>`<div><div>${v.split(' ')[0]}</div><div>${v.split(' ')[1]}</div></div>`).join('')
+  var html = list.filter(v=>v.includes(str)).map(v=>`<div><div>${v.split(' ')[0]}</div><div>${v.split(' ')[1]}</div></div>`).join('')
   $('.content').innerHTML=html
 }
 search('')
